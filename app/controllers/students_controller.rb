@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: %i[ show edit update destroy ]
-
+  protect_from_forgery with: :null_session
   # GET /students or /students.json
   def index
     @students = Student.all

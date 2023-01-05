@@ -1,8 +1,8 @@
 class Api::V1::ArticlesController < ApplicationController
-   
+   protect_from_forgery with: :null_session
   def index
      if params[:api]
-      article=Article.all()
+      article=Article.order(created_at: :desc)
       render json:article, status:200
      end
   end
