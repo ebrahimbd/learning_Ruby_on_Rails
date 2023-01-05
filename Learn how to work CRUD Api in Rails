@@ -1,0 +1,60 @@
+
+
+learn https://www.tutorialspoint.com/ruby/ruby_loops.htm
+============ Api intrigation in ruby rails  =======================
+
+rails g controller api/v1/articles index show create update destroy
+rails g model article title:string body:string author:string
+
+
+
+// routes 
+namespace :api do
+    namespace :v1 do
+      resources :articles, only: [:create, :index,:show, :update, :destroy]
+    end
+  end
+
+
+//Rails: Can't verify CSRF token authenticity when making a POST request
+class ApplicationController < ActionController::Base
+  protect_from_forgery with: :null_session
+end
+
+
+// render only json
+  def index
+     article=Article.all()
+     render json:article, status:200
+  end
+
+
+
+//for create 
+ def create
+    article=Article.new(
+      title:params[:title],
+      body:params[:body],
+      author:params[:author],
+    )
+    if article.save
+      render json:article, status:200
+    else
+      render json:{
+        error:"Error createing............"
+      }
+  end
+
+
+
+// for get specific id
+  def show
+     article=Article.find_by(id: params[:id])
+     if article
+      render json:article, status:200
+     else
+      render json:{
+        error:"not found............"
+      }
+    end
+  end
