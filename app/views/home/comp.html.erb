@@ -1,3 +1,55 @@
-<div class="card" style="width: 18rem;">
-ddddddddddddddddddddddddddddddddddd
+
+
+<div id="app">
+ 
+
+
+<%  if flash[:eb]%>
+<%= flash[:eb] %>
+
+<% end %>
+
+<div >{{ message }}</div>
+
+<button class="btn btn-dark" @click="eb"  > Incriment  </button><div  >{{ count }}</div>
+
+<div v-if="show">
+    <% @student.each do |e| %>
+    <br>
+    <div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title"><%= e.first_name%> </h5>
+        <p class="card-text"> <%= e.last_name%> </p>
+        <a href="#" class="btn btn-primary">  <%= e.email%></a>
+    </div>
+    </div>
+    <% end %>
 </div>
+
+ <%= @arr[0]["email"]%> 
+ </div>
+
+ <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+ 
+  Vue.createApp({
+    data() {
+      return {
+        message: `<%= @arr[0]["email"]%>`,
+        count:1,
+        show:false,
+      }
+    },
+    methods:{
+     eb(){
+        this.count=this.count+1
+        if(this.count>5 && this.count< 13 ){
+            this.show=true
+        }else{
+              this.show=false
+        }
+     }
+    }
+  }).mount('#app')
+</script>
