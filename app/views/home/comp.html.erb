@@ -1,6 +1,6 @@
+ 
 
-
-<div id="app">
+<div id="ebrahim">
  
 
 
@@ -30,26 +30,5 @@
  <%= @arr[0]["email"]%> 
  </div>
 
- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-<script>
+
  
-  Vue.createApp({
-    data() {
-      return {
-        message: `<%= @arr[0]["email"]%>`,
-        count:1,
-        show:false,
-      }
-    },
-    methods:{
-     eb(){
-        this.count=this.count+1
-        if(this.count>5 && this.count< 13 ){
-            this.show=true
-        }else{
-              this.show=false
-        }
-     }
-    }
-  }).mount('#app')
-</script>
