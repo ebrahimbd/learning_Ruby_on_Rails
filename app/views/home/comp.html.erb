@@ -1,33 +1,35 @@
- 
 
-<div id="ebrahim">
+ <div >
+<div data-controller="hello"></div>
  
-
 
 <%  if flash[:eb]%>
 <%= flash[:eb] %>
 
 <% end %>
-
+<div id="point">
 <div >{{ message }}</div>
-
+ 
+fgfgfgfg
 <button class="btn btn-dark" @click="eb"  > Incriment  </button><div  >{{ count }}</div>
 
 <div v-if="show">
     <% @student.each do |e| %>
     <br>
-    <div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-        <h5 class="card-title"><%= e.first_name%> </h5>
-        <p class="card-text"> <%= e.last_name%> </p>
-        <a href="#" class="btn btn-primary">  <%= e.email%></a>
-    </div>
-    </div>
+        <div class="card" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"><%= e.first_name%> </h5>
+                <p class="card-text"> <%= e.last_name%> </p>
+                <a href="#" class="btn btn-primary">  <%= e.email%></a>
+            </div>
+        </div>
     <% end %>
 </div>
 
  <%= @arr[0]["email"]%> 
+
+ </div>
  </div>
 
 

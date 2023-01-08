@@ -2,6 +2,7 @@ class HomeController < ApplicationController
    protect_from_forgery with: :null_session
   def index
    flash[:notice]=false
+ 
   end
 
   def comp

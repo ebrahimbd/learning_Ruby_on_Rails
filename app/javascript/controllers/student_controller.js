@@ -4,7 +4,7 @@ const point = "#point";
 const element = document.querySelector(point);
 export default class extends Controller {
   connect() {
-    this.element.textContent = "This is javascript controller page";
+    this.element.textContent = "This is student controller page";
     if (element !== null) {
       const app = Vue.createApp({
         data() {
